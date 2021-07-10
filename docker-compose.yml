@@ -1,0 +1,17 @@
+version: '3'
+services: 
+    web: 
+        build: .
+        ports:
+            - '3000:3000'
+    db:
+        image: 'mysql'
+        environment: 
+            MYSQL_ROOT_PASSWORD: password
+        volumes:
+            - db-data:/foo
+volumes: 
+    db-data:
+
+# Each service is it's own container. We can define how we want 
+# our containers to behave in this compose file using yml
